@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
-  <title>Ju Martins | Estética Facial &bull; Estúdio MHV</title>
+  <title>Estúdio Maria Helena Vaz | Ju Martins Estética Facial</title>
   
-  <meta name="description" content="Tratamentos faciais personalizados com a esteticista Ju Martins no Estúdio Maria Helena Vaz. Av. Venâncio Aires, 464 — Porto Alegre.">
-  <meta name="theme-color" content="#FAF8F6">
+  <meta name="description" content="Todos os cuidados para a saúde e beleza da sua pele. Tratamentos faciais personalizados com a esteticista Ju Martins no Estúdio Maria Helena Vaz.">
+  <meta name="theme-color" content="#FAF7F2">
   
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Ju Martins | Estética Facial &bull; Estúdio MHV">
-  <meta property="og:description" content="Todos os cuidados para a saúde e beleza da sua pele. Agendamentos pelo WhatsApp.">
-  <meta property="og:image" content="assets/banner-mhv.jpg">
+  <meta property="og:title" content="Estúdio Maria Helena Vaz | Ju Martins Estética Facial">
+  <meta property="og:description" content="Todos os cuidados para a saúde e beleza da sua pele. Limpeza de pele e peeling de diamante em Porto Alegre.">
+  <meta property="og:image" content="assets/hero-facial.jpg">
   <meta property="og:locale" content="pt_BR">
 
   <!-- Favicon -->
@@ -21,10 +21,10 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap">
 
-  <!-- Preload LCP -->
-  <link rel="preload" as="image" href="assets/banner-mhv.jpg" fetchpriority="high">
+  <!-- Preload da Foto Hero -->
+  <link rel="preload" as="image" href="assets/hero-facial.jpg" fetchpriority="high">
 
   <!-- Meta Pixel Code -->
   <script>
@@ -60,17 +60,20 @@
 <body>
 
   <!-- ========================================================================
-       HEADER DISCRETO
+       1. HEADER COM IDENTIDADE VISUAL MHV
        ======================================================================== -->
   <header class="site-header">
     <div class="site-container header-inner">
-      <a href="#hero" class="brand-logo" aria-label="Ju Martins Estética Facial">
-        <span class="brand-title">Ju Martins</span>
-        <span class="brand-sub">Estética Facial &bull; Estúdio MHV</span>
+      <a href="#hero" class="brand-header-link" aria-label="Estúdio Maria Helena Vaz">
+        <span class="brand-monogram">MHV</span>
+        <div class="brand-text-col">
+          <span class="brand-title">Estúdio Maria Helena Vaz</span>
+          <span class="brand-sub">Estética Facial</span>
+        </div>
       </a>
 
       <a href="https://wa.me/5551981406640" 
-         class="header-cta js-whatsapp-trigger" 
+         class="header-cta-pill js-whatsapp-trigger" 
          data-placement="header" 
          data-service="Agendamento Geral"
          aria-label="Agendar horário no WhatsApp">
@@ -81,177 +84,180 @@
 
   <main>
     <!-- ========================================================================
-         HERO MINIMALISTA
+         2. HERO NATIVO: COMPOSIÇÃO EDITORIAL DO BANNER
          ======================================================================== -->
     <section class="hero-section" id="hero">
-      <div class="site-container">
-        <span class="hero-tag">Estúdio Maria Helena Vaz &bull; Porto Alegre</span>
-        <h1 class="hero-title">
-          Todos os cuidados para a saúde e beleza da <em>sua pele</em>.
-        </h1>
-        <p class="hero-desc">
-          Tratamentos faciais personalizados com a esteticista <strong>Ju Martins</strong>. Atendimento acolhedor e exclusivo com hora marcada na Cidade Baixa.
-        </p>
+      <div class="site-container hero-grid">
+        <div class="hero-content">
+          <h1 class="hero-title">
+            Todos os cuidados para a saúde e beleza <span class="gold-script">da sua pele</span>
+          </h1>
 
-        <div class="hero-actions">
+          <div class="hero-bar-text">
+            <p>Tratamentos personalizados, sempre com avaliação profissional, para indicar o que realmente a sua pele precisa.</p>
+          </div>
+
           <a href="https://wa.me/5551981406640" 
-             class="btn-primary btn-whatsapp js-whatsapp-trigger" 
+             class="btn-gold-action js-whatsapp-trigger" 
              data-placement="hero_primary" 
              data-service="Avaliação Geral">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
               <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.587 1.764.884 2.801.884l.001-.001c3.18 0 5.767-2.586 5.768-5.766 0-3.18-2.587-5.769-5.78-5.769zm3.374 8.213c-.14.394-.808.756-1.121.785-.314.03-.708.06-2.203-.541-1.802-.725-2.96-2.56-3.05-2.679-.089-.119-.729-.972-.729-1.855 0-.883.462-1.317.625-1.496.163-.179.356-.224.475-.224.119 0 .238.001.341.006.109.006.255-.041.399.304.149.357.509 1.242.554 1.332.045.09.075.194.015.313-.06.119-.089.194-.179.299-.089.104-.188.233-.268.313-.09.09-.184.188-.079.367.104.179.465.767 1.001 1.244.69.614 1.272.805 1.451.895.179.09.283.075.388-.045.104-.119.447-.521.566-.7.119-.179.238-.149.399-.09.16.06 1.02.481 1.196.57.175.09.293.134.337.208.045.074.045.432-.095.826z"/>
             </svg>
-            Agendar no WhatsApp
-          </a>
-          <a href="#tratamentos" class="btn-secondary">
-            Ver Tratamentos & Preços
+            Agendar sua Avaliação
           </a>
         </div>
 
-        <div class="hero-visual">
-          <img src="assets/banner-mhv.jpg" 
-               alt="Estúdio Maria Helena Vaz - Ju Martins Estética Facial" 
+        <div class="hero-image-frame">
+          <img src="assets/hero-facial.jpg" 
+               alt="Cuidados faciais no Estúdio Maria Helena Vaz" 
                fetchpriority="high"
                loading="eager" 
-               width="600" 
-               height="750">
+               width="390" 
+               height="340">
         </div>
       </div>
     </section>
 
     <!-- ========================================================================
-         MENU DE TRATAMENTOS (SPA MENU ELEGANTE & ENXUTO)
+         3. CÁPSULAS DE PROCEDIMENTOS (DESIGN DO BANNER NATIVO)
          ======================================================================== -->
-    <section class="menu-section" id="tratamentos">
+    <section class="treatments-section" id="tratamentos">
       <div class="site-container">
-        <div class="section-head">
-          <span class="section-subtitle">Procedimentos Faciais</span>
-          <h2 class="section-title">Menu de Cuidados</h2>
-        </div>
-
-        <div class="treatments-list" id="treatments-container">
-          <!-- Item 1 -->
-          <article class="treatment-item">
-            <div class="treatment-row">
-              <h3 class="treatment-name">Limpeza de Pele Essencial</h3>
-              <span class="treatment-price">R$ 150</span>
+        <div class="treatments-list">
+          <!-- Procedimento 1 -->
+          <a href="https://wa.me/5551981406640?text=Ol%C3%A1%2C%20Ju!%20Gostaria%20de%20agendar%20a%20Limpeza%20de%20Pele%20Essencial%20(R%24%20150)%20no%20Est%C3%BAdio%20MHV." 
+             class="treatment-capsule js-whatsapp-trigger" 
+             data-placement="capsule" 
+             data-service="Limpeza de Pele Essencial" 
+             data-price="150"
+             aria-label="Agendar Limpeza de Pele Essencial por R$ 150">
+            <div class="capsule-left">
+              <div class="capsule-vignette">
+                <img src="assets/proc-1-essencial.jpg" alt="Limpeza de Pele Essencial" loading="lazy" width="118" height="118">
+              </div>
+              <div class="capsule-info">
+                <h3 class="capsule-title">Limpeza de Pele Essencial</h3>
+                <p class="capsule-desc">Higienização, esfoliação, máscara facial e hidratação.</p>
+              </div>
             </div>
-            <p class="treatment-desc">Higienização, esfoliação suave, máscara facial nutritiva e hidratação.</p>
-            <a href="https://wa.me/5551981406640?text=Ol%C3%A1%2C%20Ju!%20Gostaria%20de%20agendar%20a%20Limpeza%20de%20Pele%20Essencial%20(R%24%20150)%20no%20Est%C3%BAdio%20MHV." 
-               class="treatment-link js-whatsapp-trigger" 
-               data-placement="menu_item" 
-               data-service="Limpeza de Pele Essencial" 
-               data-price="150">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.587 1.764.884 2.801.884l.001-.001c3.18 0 5.767-2.586 5.768-5.766 0-3.18-2.587-5.769-5.78-5.769zm3.374 8.213c-.14.394-.808.756-1.121.785-.314.03-.708.06-2.203-.541-1.802-.725-2.96-2.56-3.05-2.679-.089-.119-.729-.972-.729-1.855 0-.883.462-1.317.625-1.496.163-.179.356-.224.475-.224.119 0 .238.001.341.006.109.006.255-.041.399.304.149.357.509 1.242.554 1.332.045.09.075.194.015.313-.06.119-.089.194-.179.299-.089.104-.188.233-.268.313-.09.09-.184.188-.079.367.104.179.465.767 1.001 1.244.69.614 1.272.805 1.451.895.179.09.283.075.388-.045.104-.119.447-.521.566-.7.119-.179.238-.149.399-.09.16.06 1.02.481 1.196.57.175.09.293.134.337.208.045.074.045.432-.095.826z"/>
-              </svg>
-              Agendar este procedimento &rarr;
-            </a>
-          </article>
+            <div class="capsule-price-pill">R$ 150</div>
+          </a>
 
-          <!-- Item 2 -->
-          <article class="treatment-item">
-            <div class="treatment-row">
-              <h3 class="treatment-name">Limpeza de Pele Profunda</h3>
-              <span class="treatment-price">R$ 190</span>
+          <!-- Procedimento 2 -->
+          <a href="https://wa.me/5551981406640?text=Ol%C3%A1%2C%20Ju!%20Gostaria%20de%20agendar%20a%20Limpeza%20de%20Pele%20Profunda%20(R%24%20190)%20no%20Est%C3%BAdio%20MHV." 
+             class="treatment-capsule js-whatsapp-trigger" 
+             data-placement="capsule" 
+             data-service="Limpeza de Pele Profunda" 
+             data-price="190"
+             aria-label="Agendar Limpeza de Pele Profunda por R$ 190">
+            <div class="capsule-left">
+              <div class="capsule-vignette">
+                <img src="assets/proc-2-profunda.jpg" alt="Limpeza de Pele Profunda" loading="lazy" width="118" height="118">
+              </div>
+              <div class="capsule-info">
+                <h3 class="capsule-title">Limpeza de Pele Profunda</h3>
+                <p class="capsule-desc">Higienização, emoliência, extração de cravos e impurezas, máscara calmante e proteção.</p>
+              </div>
             </div>
-            <p class="treatment-desc">Higienização, emoliência, extração detalhada de cravos e impurezas, máscara calmante e proteção.</p>
-            <a href="https://wa.me/5551981406640?text=Ol%C3%A1%2C%20Ju!%20Gostaria%20de%20agendar%20a%20Limpeza%20de%20Pele%20Profunda%20(R%24%20190)%20no%20Est%C3%BAdio%20MHV." 
-               class="treatment-link js-whatsapp-trigger" 
-               data-placement="menu_item" 
-               data-service="Limpeza de Pele Profunda" 
-               data-price="190">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.587 1.764.884 2.801.884l.001-.001c3.18 0 5.767-2.586 5.768-5.766 0-3.18-2.587-5.769-5.78-5.769zm3.374 8.213c-.14.394-.808.756-1.121.785-.314.03-.708.06-2.203-.541-1.802-.725-2.96-2.56-3.05-2.679-.089-.119-.729-.972-.729-1.855 0-.883.462-1.317.625-1.496.163-.179.356-.224.475-.224.119 0 .238.001.341.006.109.006.255-.041.399.304.149.357.509 1.242.554 1.332.045.09.075.194.015.313-.06.119-.089.194-.179.299-.089.104-.188.233-.268.313-.09.09-.184.188-.079.367.104.179.465.767 1.001 1.244.69.614 1.272.805 1.451.895.179.09.283.075.388-.045.104-.119.447-.521.566-.7.119-.179.238-.149.399-.09.16.06 1.02.481 1.196.57.175.09.293.134.337.208.045.074.045.432-.095.826z"/>
-              </svg>
-              Agendar este procedimento &rarr;
-            </a>
-          </article>
+            <div class="capsule-price-pill">R$ 190</div>
+          </a>
 
-          <!-- Item 3 -->
-          <article class="treatment-item">
-            <div class="treatment-row">
-              <h3 class="treatment-name">Limpeza Premium com Ozônio</h3>
-              <span class="treatment-price">R$ 250</span>
+          <!-- Procedimento 3 -->
+          <a href="https://wa.me/5551981406640?text=Ol%C3%A1%2C%20Ju!%20Gostaria%20de%20agendar%20a%20Limpeza%20de%20Pele%20Premium%20com%20Oz%C3%B4nio%20(R%24%20250)%20no%20Est%C3%BAdio%20MHV." 
+             class="treatment-capsule js-whatsapp-trigger" 
+             data-placement="capsule" 
+             data-service="Limpeza de Pele Premium com Ozônio" 
+             data-price="250"
+             aria-label="Agendar Limpeza de Pele Premium com Ozônio por R$ 250">
+            <div class="capsule-left">
+              <div class="capsule-vignette">
+                <img src="assets/proc-3-ozonio.jpg" alt="Limpeza de Pele Premium com Ozônio" loading="lazy" width="118" height="118">
+              </div>
+              <div class="capsule-info">
+                <h3 class="capsule-title">Limpeza de Pele Premium com Ozônio</h3>
+                <p class="capsule-desc">Limpeza completa, vapor de ozônio, extração, máscara personalizada e hidratação intensa.</p>
+              </div>
             </div>
-            <p class="treatment-desc">Limpeza completa, vapor de ozônio bactericida, extração, máscara personalizada e hidratação intensa.</p>
-            <a href="https://wa.me/5551981406640?text=Ol%C3%A1%2C%20Ju!%20Gostaria%20de%20agendar%20a%20Limpeza%20Premium%20com%20Oz%C3%B4nio%20(R%24%20250)%20no%20Est%C3%BAdio%20MHV." 
-               class="treatment-link js-whatsapp-trigger" 
-               data-placement="menu_item" 
-               data-service="Limpeza Premium com Ozônio" 
-               data-price="250">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.587 1.764.884 2.801.884l.001-.001c3.18 0 5.767-2.586 5.768-5.766 0-3.18-2.587-5.769-5.78-5.769zm3.374 8.213c-.14.394-.808.756-1.121.785-.314.03-.708.06-2.203-.541-1.802-.725-2.96-2.56-3.05-2.679-.089-.119-.729-.972-.729-1.855 0-.883.462-1.317.625-1.496.163-.179.356-.224.475-.224.119 0 .238.001.341.006.109.006.255-.041.399.304.149.357.509 1.242.554 1.332.045.09.075.194.015.313-.06.119-.089.194-.179.299-.089.104-.188.233-.268.313-.09.09-.184.188-.079.367.104.179.465.767 1.001 1.244.69.614 1.272.805 1.451.895.179.09.283.075.388-.045.104-.119.447-.521.566-.7.119-.179.238-.149.399-.09.16.06 1.02.481 1.196.57.175.09.293.134.337.208.045.074.045.432-.095.826z"/>
-              </svg>
-              Agendar este procedimento &rarr;
-            </a>
-          </article>
+            <div class="capsule-price-pill">R$ 250</div>
+          </a>
 
-          <!-- Item 4 -->
-          <article class="treatment-item">
-            <div class="treatment-row">
-              <h3 class="treatment-name">Peeling de Diamante</h3>
-              <span class="treatment-price">R$ 230</span>
+          <!-- Procedimento 4 -->
+          <a href="https://wa.me/5551981406640?text=Ol%C3%A1%2C%20Ju!%20Gostaria%20de%20agendar%20o%20Peeling%20de%20Diamante%20(R%24%20230)%20no%20Est%C3%BAdio%20MHV." 
+             class="treatment-capsule js-whatsapp-trigger" 
+             data-placement="capsule" 
+             data-service="Peeling de Diamante" 
+             data-price="230"
+             aria-label="Agendar Peeling de Diamante por R$ 230">
+            <div class="capsule-left">
+              <div class="capsule-vignette">
+                <img src="assets/proc-4-peeling.jpg" alt="Peeling de Diamante" loading="lazy" width="118" height="118">
+              </div>
+              <div class="capsule-info">
+                <h3 class="capsule-title">Peeling de Diamante</h3>
+                <p class="capsule-desc">Esfoliação controlada, renovação celular, melhora da textura, luminosidade e uniformidade da pele.</p>
+              </div>
             </div>
-            <p class="treatment-desc">Esfoliação controlada, renovação celular, melhora da textura, luminosidade e viço imediato.</p>
-            <a href="https://wa.me/5551981406640?text=Ol%C3%A1%2C%20Ju!%20Gostaria%20de%20agendar%20o%20Peeling%20de%20Diamante%20(R%24%20230)%20no%20Est%C3%BAdio%20MHV." 
-               class="treatment-link js-whatsapp-trigger" 
-               data-placement="menu_item" 
-               data-service="Peeling de Diamante" 
-               data-price="230">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.587 1.764.884 2.801.884l.001-.001c3.18 0 5.767-2.586 5.768-5.766 0-3.18-2.587-5.769-5.78-5.769zm3.374 8.213c-.14.394-.808.756-1.121.785-.314.03-.708.06-2.203-.541-1.802-.725-2.96-2.56-3.05-2.679-.089-.119-.729-.972-.729-1.855 0-.883.462-1.317.625-1.496.163-.179.356-.224.475-.224.119 0 .238.001.341.006.109.006.255-.041.399.304.149.357.509 1.242.554 1.332.045.09.075.194.015.313-.06.119-.089.194-.179.299-.089.104-.188.233-.268.313-.09.09-.184.188-.079.367.104.179.465.767 1.001 1.244.69.614 1.272.805 1.451.895.179.09.283.075.388-.045.104-.119.447-.521.566-.7.119-.179.238-.149.399-.09.16.06 1.02.481 1.196.57.175.09.293.134.337.208.045.074.045.432-.095.826z"/>
-              </svg>
-              Agendar este procedimento &rarr;
-            </a>
-          </article>
-        </div>
-
-        <div class="note-box">
-          <h4>Dúvida sobre qual procedimento escolher?</h4>
-          <p>Cada tratamento começa com uma avaliação profissional para entender exatamente o que sua pele precisa.</p>
-          <a href="https://wa.me/5551981406640?text=Ol%C3%A1%2C%20Ju%20Martins!%20Gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20facial%20no%20Est%C3%BAdio%20Maria%20Helena%20Vaz." 
-             class="btn-secondary js-whatsapp-trigger" 
-             data-placement="evaluation_box" 
-             data-service="Avaliação Facial Inicial">
-            Agendar Avaliação Personalizada
+            <div class="capsule-price-pill">R$ 230</div>
           </a>
         </div>
+
+        <!-- Bloco Oficial da Esteticista Ju Martins (Inspirado no Rodapé do Banner) -->
+        <div class="professional-card">
+          <div class="pro-profile">
+            <div class="pro-avatar">
+              <img src="assets/ju-martins.jpg" alt="Ju Martins - Esteticista do MHV" loading="lazy" width="142" height="142">
+            </div>
+            <div class="pro-details">
+              <h3>Ju Martins</h3>
+              <span>Nossa Esteticista do MHV</span>
+            </div>
+          </div>
+
+          <div class="pro-action">
+            <a href="https://wa.me/5551981406640?text=Ol%C3%A1%2C%20Ju%20Martins!%20Gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20facial%20no%20Est%C3%BAdio%20Maria%20Helena%20Vaz." 
+               class="pro-calendar-cta js-whatsapp-trigger" 
+               data-placement="pro_card" 
+               data-service="Avaliação Facial Inicial">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--gold-dark);">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+              Agende sua avaliação
+            </a>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- ========================================================================
-         ESPAÇO & LOCALIZAÇÃO
+         4. LOCALIZAÇÃO & HORÁRIOS
          ======================================================================== -->
-    <section class="location-section" id="localizacao">
+    <section class="location-strip" id="localizacao">
       <div class="site-container">
-        <div class="location-card">
-          <div class="location-address">
-            <h4>Estúdio Maria Helena Vaz</h4>
-            <p>
-              Av. Venâncio Aires, 464 &bull; Bairro Farroupilha / Cidade Baixa<br>
-              Porto Alegre - RS
-            </p>
-          </div>
+        <div class="location-box">
+          <h4>Estúdio Maria Helena Vaz</h4>
+          <p>
+            Av. Venâncio Aires, 464 &bull; Bairro Farroupilha / Cidade Baixa<br>
+            Porto Alegre - RS
+          </p>
+          <span class="location-hours-tag">Terça a Sábado das 09h às 18h &bull; Hora Marcada</span>
 
-          <div class="location-hours">
-            <span>Terça a Sábado das 09h às 18h</span>
-            <span style="font-size: 0.8rem; color: var(--text-soft);">Atendimento exclusivo com hora marcada</span>
-          </div>
-
-          <div class="location-actions">
+          <div class="location-btn-row">
             <a href="https://www.google.com/maps/search/?api=1&query=Av.+Ven%C3%A2ncio+Aires%2C+464+-+Cidade+Baixa%2C+Porto+Alegre+-+RS" 
                target="_blank" 
                rel="noopener noreferrer" 
-               class="btn-pill-maps">
+               class="btn-pill-light">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
               </svg>
               Como Chegar no Maps
             </a>
             <a href="https://wa.me/5551981406640" 
-               class="btn-pill-maps js-whatsapp-trigger" 
-               data-placement="location_card" 
+               class="btn-pill-light js-whatsapp-trigger" 
+               data-placement="location_strip" 
                data-service="Dúvidas de Localização">
               Falar no WhatsApp
             </a>
@@ -262,7 +268,7 @@
   </main>
 
   <!-- ========================================================================
-       FOOTER DISCRETO
+       5. FOOTER DISCRETO
        ======================================================================== -->
   <footer class="site-footer">
     <div class="site-container footer-inner">
@@ -282,14 +288,14 @@
   </footer>
 
   <!-- ========================================================================
-       BOTÃO FLUTUANTE DE WHATSAPP
+       6. BOTÃO FLUTUANTE DE WHATSAPP
        ======================================================================== -->
   <div class="floating-whatsapp">
     <a href="https://wa.me/5551981406640" 
        class="floating-btn js-whatsapp-trigger" 
        data-placement="floating_button" 
        data-service="WhatsApp Flutuante" 
-       aria-label="Agendar horário no WhatsApp com a esteticista">
+       aria-label="Agendar horário no WhatsApp">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
         <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.587 1.764.884 2.801.884l.001-.001c3.18 0 5.767-2.586 5.768-5.766 0-3.18-2.587-5.769-5.78-5.769zm3.374 8.213c-.14.394-.808.756-1.121.785-.314.03-.708.06-2.203-.541-1.802-.725-2.96-2.56-3.05-2.679-.089-.119-.729-.972-.729-1.855 0-.883.462-1.317.625-1.496.163-.179.356-.224.475-.224.119 0 .238.001.341.006.109.006.255-.041.399.304.149.357.509 1.242.554 1.332.045.09.075.194.015.313-.06.119-.089.194-.179.299-.089.104-.188.233-.268.313-.09.09-.184.188-.079.367.104.179.465.767 1.001 1.244.69.614 1.272.805 1.451.895.179.09.283.075.388-.045.104-.119.447-.521.566-.7.119-.179.238-.149.399-.09.16.06 1.02.481 1.196.57.175.09.293.134.337.208.045.074.045.432-.095.826z"/>
       </svg>

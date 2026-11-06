@@ -1,37 +1,34 @@
 /* ==========================================================================
-   MINIMALIST LUXURY DESIGN SYSTEM - JU MARTINS ESTÉTICA FACIAL
-   Estúdio Maria Helena Vaz &bull; Minimalista, Elegante & Enxuto
+   DESIGN SYSTEM NATIVO - ESTÚDIO MARIA HELENA VAZ
+   Inspirado 100% na Identidade Visual e Cores do Criativo Oficial
    ========================================================================== */
 
 :root {
-  /* Paleta Minimalista Nobre */
-  --primary: #944C57;             /* Rose Gold Escuro Editorial */
-  --primary-light: #F7EFEF;       /* Blush Nude Suave */
-  --primary-border: rgba(148, 76, 87, 0.16);
+  /* Cores Extraídas Diretamente do Banner */
+  --gold-primary: #C59B63;        /* Ouro Acetinado Principal */
+  --gold-dark: #9E743A;           /* Ouro Escuro para Leitura Aprovada WCAG */
+  --gold-light: #F7EFE3;         /* Brilho Champanhe Suave */
+  --gold-border: rgba(197, 155, 99, 0.42);
 
-  --gold: #B8854D;                /* Champanhe Ouro Fino */
-  --gold-light: #FDFBF7;          /* Fundo suave com brilho quente */
-  --gold-border: rgba(184, 133, 77, 0.22);
+  --bg-main: #FAF7F2;             /* Fundo Creme Acolhedor do Banner */
+  --bg-card: #FFFFFF;             /* Branco Puro */
+  --bg-capsule: #FFFDFB;          /* Cápsula de Destaque */
 
-  --bg-main: #FAF8F6;             /* Nude Off-White Quente e Arejado */
-  --bg-card: #FFFFFF;             /* Branco Puro para respiro */
-
-  --text-main: #1C1917;           /* Preto Quente / Carvão Suave */
-  --text-muted: #736B66;          /* Cinza Nobre e Legível */
-  --text-soft: #998E87;           /* Detalhes discretos */
+  --text-dark: #1C1817;           /* Carvão Nobre Profundo */
+  --text-muted: #6B625D;          /* Taupe Suave e Legível */
+  --text-gold: #966F37;           /* Dourado para Textos em Destaque */
 
   /* Tipografia */
   --font-serif: 'Cormorant Garamond', Georgia, serif;
   --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
 
-  /* Espaçamentos e Raios */
+  /* Formatos e Sombras */
   --radius-sm: 8px;
-  --radius-md: 16px;
+  --radius-md: 18px;
   --radius-pill: 9999px;
 
-  /* Sombras Quase Invisíveis (Efeito Galeria de Arte) */
-  --shadow-subtle: 0 4px 20px -2px rgba(28, 25, 23, 0.04), 0 12px 32px -4px rgba(28, 25, 23, 0.03);
-  --shadow-float: 0 12px 30px rgba(0, 0, 0, 0.12);
+  --shadow-card: 0 4px 18px -2px rgba(197, 155, 99, 0.12), 0 2px 8px -1px rgba(28, 24, 23, 0.04);
+  --shadow-hover: 0 8px 26px -2px rgba(197, 155, 99, 0.22);
 }
 
 /* Reset e Base */
@@ -50,14 +47,14 @@ html {
 
 body {
   font-family: var(--font-sans);
-  color: var(--text-main);
+  color: var(--text-dark);
   background-color: var(--bg-main);
   line-height: 1.6;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
 
-img, svg {
+img {
   display: block;
   max-width: 100%;
   height: auto;
@@ -66,7 +63,6 @@ img, svg {
 a {
   color: inherit;
   text-decoration: none;
-  transition: opacity 0.2s ease, transform 0.2s ease;
   touch-action: manipulation;
 }
 
@@ -76,9 +72,4 @@ button {
   background: none;
   cursor: pointer;
   touch-action: manipulation;
-}
-
-a:focus-visible, button:focus-visible {
-  outline: 1.5px solid var(--primary);
-  outline-offset: 3px;
 }

@@ -1,18 +1,18 @@
 /* ==========================================================================
-   MINIMALIST LUXURY STYLESHEET - JU MARTINS ESTÉTICA FACIAL
-   Estética Limpa, Arejada e Sofisticada
+   STYLESHEET NATIVO - ESTÚDIO MARIA HELENA VAZ
+   Traduz o Layout e Elementos do Criativo em Componentes Vivos de Alta Estética
    ========================================================================== */
 
-/* Container Central */
+/* Container Principal */
 .site-container {
   width: 100%;
-  max-width: 58rem; /* 928px - Foco editorial confortável */
+  max-width: 54rem; /* 864px - Formato elegante e focado */
   margin: 0 auto;
   padding: 0 clamp(1.25rem, 4vw, 2rem);
 }
 
 /* --------------------------------------------------------------------------
-   1. HEADER MINIMALISTA
+   1. HEADER COM MONOGRAMA MHV
    -------------------------------------------------------------------------- */
 .site-header {
   position: sticky;
@@ -20,44 +20,59 @@
   left: 0;
   width: 100%;
   z-index: 100;
-  background: rgba(250, 248, 246, 0.92);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(184, 133, 77, 0.15);
+  background: rgba(250, 247, 242, 0.94);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--gold-border);
 }
 
 .header-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 4.25rem;
+  height: 4.75rem;
 }
 
-.brand-logo {
+.brand-header-link {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Monograma Dourado MHV */
+.brand-monogram {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--gold-primary);
+  letter-spacing: 0.05em;
+  line-height: 1;
+}
+
+.brand-text-col {
   display: flex;
   flex-direction: column;
 }
 
 .brand-title {
   font-family: var(--font-serif);
-  font-size: 1.45rem;
+  font-size: 1.15rem;
   font-weight: 600;
-  letter-spacing: 0.08em;
-  color: var(--text-main);
-  line-height: 1.1;
+  letter-spacing: 0.12em;
+  color: var(--text-dark);
   text-transform: uppercase;
+  line-height: 1.1;
 }
 
 .brand-sub {
-  font-size: 0.6875rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--text-soft);
-  font-weight: 500;
-  margin-top: 0.2rem;
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  font-style: italic;
+  color: var(--gold-dark);
+  margin-top: 0.15rem;
 }
 
-.header-cta {
+.header-cta-pill {
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
@@ -66,389 +81,400 @@
   letter-spacing: 0.04em;
   padding: 0.55rem 1.15rem;
   border-radius: var(--radius-pill);
-  background: var(--primary);
+  background: var(--gold-primary);
   color: #FFFFFF;
-  transition: opacity 0.2s, transform 0.2s;
+  box-shadow: 0 2px 8px rgba(197, 155, 99, 0.25);
+  transition: all 0.2s ease;
 }
 
-.header-cta:hover {
-  opacity: 0.9;
+.header-cta-pill:hover {
+  background: var(--gold-dark);
   transform: translateY(-1px);
 }
 
 /* --------------------------------------------------------------------------
-   2. HERO EDITORIAL
+   2. HERO ALINHADO AO TOPO DO BANNER
    -------------------------------------------------------------------------- */
 .hero-section {
-  padding-top: clamp(3rem, 6vw, 4.5rem);
-  padding-bottom: clamp(3.5rem, 7vw, 5rem);
-  text-align: center;
+  padding-top: clamp(2.5rem, 5vw, 4rem);
+  padding-bottom: clamp(2.5rem, 5vw, 3.5rem);
 }
 
-.hero-tag {
-  display: inline-block;
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 1.25rem;
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.25rem;
+  align-items: center;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .hero-title {
   font-family: var(--font-serif);
-  font-size: clamp(2.35rem, 5.5vw, 3.85rem);
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
   font-weight: 400;
-  line-height: 1.12;
-  color: var(--text-main);
-  max-width: 44rem;
-  margin: 0 auto 1.5rem auto;
+  line-height: 1.15;
+  color: var(--text-dark);
+  margin-bottom: 1.5rem;
 }
 
-.hero-title em {
+/* Destaque "da sua pele" com estilo do criativo */
+.hero-title .gold-script {
   font-style: italic;
-  font-weight: 400;
-  color: var(--primary);
+  color: var(--gold-dark);
+  font-weight: 500;
 }
 
-.hero-desc {
-  font-size: clamp(1rem, 1.8vw, 1.125rem);
+/* Linha Dourada Vertical com Frase Conceitual do Banner */
+.hero-bar-text {
+  border-left: 2px solid var(--gold-primary);
+  padding-left: 1.15rem;
+  margin-bottom: 2rem;
+}
+
+.hero-bar-text p {
+  font-size: clamp(0.95rem, 1.8vw, 1.05rem);
   color: var(--text-muted);
-  max-width: 34rem;
-  margin: 0 auto 2.25rem auto;
-  line-height: 1.6;
+  line-height: 1.55;
+  max-width: 32rem;
 }
 
-.hero-actions {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-}
-
-.btn-primary {
+.btn-gold-action {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.65rem;
   font-size: 0.95rem;
   font-weight: 600;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.02em;
   padding: 0.95rem 2rem;
   border-radius: var(--radius-pill);
-  background: var(--text-main);
+  background: linear-gradient(135deg, #1DA851 0%, #178A42 100%);
   color: #FFFFFF;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 4px 16px rgba(29, 168, 81, 0.28);
   transition: all 0.2s ease;
 }
 
-.btn-primary:hover {
-  background: var(--primary);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 22px rgba(148, 76, 87, 0.25);
-}
-
-.btn-whatsapp {
-  background: linear-gradient(135deg, #1DA851 0%, #178A42 100%);
-  color: #FFFFFF;
-}
-
-.btn-whatsapp:hover {
+.btn-gold-action:hover {
   background: #178A42;
-  box-shadow: 0 6px 22px rgba(29, 168, 81, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(29, 168, 81, 0.35);
 }
 
-.hero-visual {
-  margin-top: 3rem;
-  max-width: 32rem;
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: var(--radius-md);
+/* Foto do Tratamento Facial (Recorte Orgânico da Imagem) */
+.hero-image-frame {
+  width: 100%;
+  max-width: 24rem;
+  margin: 0 auto;
+  border-radius: clamp(1.5rem, 3vw, 2.5rem);
   overflow: hidden;
-  box-shadow: var(--shadow-subtle);
-  border: 1px solid var(--gold-border);
-  background: #FFFFFF;
+  box-shadow: var(--shadow-card);
+  border: 2px solid var(--gold-border);
   position: relative;
+  background: #FFFFFF;
 }
 
-.hero-visual img {
+.hero-image-frame img {
   width: 100%;
   height: auto;
   display: block;
 }
 
 /* --------------------------------------------------------------------------
-   3. MENU DE TRATAMENTOS (SPA MENU MINIMALISTA)
+   3. CÁPSULAS DE TRATAMENTOS (IDÊNTICAS AO DESIGN DO BANNER)
    -------------------------------------------------------------------------- */
-.menu-section {
-  padding: clamp(3.5rem, 6vw, 5rem) 0;
-  border-top: 1px solid var(--gold-border);
-  border-bottom: 1px solid var(--gold-border);
-  background: #FFFFFF;
-}
-
-.section-head {
-  text-align: center;
-  margin-bottom: 3rem;
-}
-
-.section-subtitle {
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 0.5rem;
-  display: block;
-}
-
-.section-title {
-  font-family: var(--font-serif);
-  font-size: clamp(2rem, 3.8vw, 2.75rem);
-  font-weight: 500;
-  color: var(--text-main);
-  line-height: 1.2;
+.treatments-section {
+  padding: clamp(2.5rem, 5vw, 4rem) 0;
 }
 
 .treatments-list {
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
-  max-width: 44rem;
+  max-width: 48rem;
   margin: 0 auto;
 }
 
-.treatment-item {
-  background: var(--bg-main);
-  border: 1px solid rgba(184, 133, 77, 0.2);
-  border-radius: var(--radius-md);
-  padding: 1.75rem clamp(1.25rem, 3vw, 2rem);
+/* Cápsula Horizontal com Borda Ouro e Vinheta Circular */
+.treatment-capsule {
   display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  background: var(--bg-capsule);
+  border: 1px solid var(--gold-border);
+  border-radius: 9999px; /* Formato de Cápsula Oficial */
+  padding: 0.75rem 1.5rem 0.75rem 0.75rem;
+  box-shadow: var(--shadow-card);
+  transition: all 0.25s ease;
+  cursor: pointer;
+  text-decoration: none;
 }
 
-.treatment-item:hover {
+.treatment-capsule:hover {
   transform: translateY(-2px);
-  border-color: var(--gold);
-  box-shadow: var(--shadow-subtle);
+  border-color: var(--gold-primary);
+  box-shadow: var(--shadow-hover);
   background: #FFFFFF;
 }
 
-.treatment-row {
+.capsule-left {
   display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 1rem;
+  align-items: center;
+  gap: 1.25rem;
+  flex: 1;
 }
 
-.treatment-name {
+/* Vinheta Circular com Imagem Real e Anel Dourado */
+.capsule-vignette {
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: 50%;
+  border: 2px solid var(--gold-primary);
+  overflow: hidden;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(197, 155, 99, 0.2);
+  background: #FAF7F2;
+}
+
+.capsule-vignette img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.capsule-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.capsule-title {
   font-family: var(--font-serif);
-  font-size: clamp(1.35rem, 2.2vw, 1.65rem);
-  font-weight: 600;
-  color: var(--text-main);
+  font-size: clamp(1.2rem, 2.2vw, 1.45rem);
+  font-weight: 700;
+  color: var(--text-dark);
   line-height: 1.2;
 }
 
-.treatment-price {
-  font-family: var(--font-serif);
-  font-size: clamp(1.35rem, 2.2vw, 1.65rem);
-  font-weight: 700;
-  color: var(--primary);
-  white-space: nowrap;
-}
-
-.treatment-desc {
-  font-size: 0.9375rem;
+.capsule-desc {
+  font-size: 0.875rem;
   color: var(--text-muted);
-  line-height: 1.55;
+  line-height: 1.4;
+  margin-top: 0.2rem;
 }
 
-.treatment-link {
+/* Cápsula de Preço Nobre com Fio Dourado do Banner */
+.capsule-price-pill {
   display: inline-flex;
   align-items: center;
-  gap: 0.45rem;
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: var(--text-main);
-  margin-top: 0.25rem;
-  transition: color 0.2s, gap 0.2s;
+  justify-content: center;
+  padding: 0.5rem 1.35rem;
+  border-radius: var(--radius-pill);
+  border: 1.2px solid var(--gold-primary);
+  background: #FFFDFB;
+  font-family: var(--font-serif);
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  letter-spacing: 0.02em;
+  box-shadow: 0 2px 6px rgba(197, 155, 99, 0.12);
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
-.treatment-link svg {
-  color: #1DA851;
-  transition: transform 0.2s;
-}
-
-.treatment-item:hover .treatment-link {
-  color: var(--primary);
-  gap: 0.65rem;
-}
-
-.treatment-item:hover .treatment-link svg {
-  transform: scale(1.1);
+.treatment-capsule:hover .capsule-price-pill {
+  border-color: var(--gold-dark);
+  color: var(--gold-dark);
+  background: #FFFFFF;
 }
 
 /* --------------------------------------------------------------------------
-   4. AVALIAÇÃO PERSONALIZADA (CHAMADA DISCRETA)
+   4. BLOCO DA PROFISSIONAL JU MARTINS (RODAPÉ DO BANNER)
    -------------------------------------------------------------------------- */
-.note-box {
-  margin-top: 2.5rem;
-  text-align: center;
-  padding: 2rem 1.5rem;
-  background: var(--gold-light);
-  border: 1px dashed var(--gold);
+.professional-card {
+  margin-top: 3rem;
+  max-width: 48rem;
+  margin-left: auto;
+  margin-right: auto;
+  background: #FFFDFB;
+  border: 1px solid var(--gold-border);
   border-radius: var(--radius-md);
-  max-width: 44rem;
-  margin-left: auto;
-  margin-right: auto;
+  padding: 1.75rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  box-shadow: var(--shadow-card);
 }
 
-.note-box h4 {
+.pro-profile {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+/* Retrato Circular de Ju Martins com Borda Ouro */
+.pro-avatar {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  border: 2.5px solid var(--gold-primary);
+  overflow: hidden;
+  flex-shrink: 0;
+  box-shadow: 0 3px 12px rgba(197, 155, 99, 0.25);
+}
+
+.pro-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pro-details h3 {
   font-family: var(--font-serif);
-  font-size: 1.35rem;
+  font-size: 1.65rem;
+  font-style: italic;
   font-weight: 600;
-  color: var(--text-main);
-  margin-bottom: 0.5rem;
+  color: var(--gold-dark);
+  line-height: 1.1;
 }
 
-.note-box p {
-  font-size: 0.9375rem;
+.pro-details span {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
   color: var(--text-muted);
-  margin-bottom: 1.25rem;
-  max-width: 32rem;
-  margin-left: auto;
-  margin-right: auto;
+  display: block;
+  margin-top: 0.25rem;
 }
 
-.btn-secondary {
+.pro-action {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.pro-calendar-cta {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 0.875rem;
+  font-size: 0.95rem;
   font-weight: 600;
-  padding: 0.75rem 1.5rem;
+  color: var(--text-dark);
+  padding: 0.75rem 1.25rem;
   border-radius: var(--radius-pill);
-  border: 1px solid var(--text-main);
-  color: var(--text-main);
+  border: 1px solid var(--gold-border);
+  background: #FFFFFF;
   transition: all 0.2s;
 }
 
-.btn-secondary:hover {
-  background: var(--text-main);
-  color: #FFFFFF;
+.pro-calendar-cta:hover {
+  border-color: var(--gold-primary);
+  color: var(--gold-dark);
 }
 
 /* --------------------------------------------------------------------------
-   5. ESPAÇO & LOCALIZAÇÃO
+   5. LOCALIZAÇÃO & HORÁRIOS
    -------------------------------------------------------------------------- */
-.location-section {
-  padding: clamp(3.5rem, 6vw, 5rem) 0;
+.location-strip {
+  padding: 3rem 0;
   text-align: center;
 }
 
-.location-card {
-  max-width: 34rem;
+.location-box {
+  max-width: 38rem;
   margin: 0 auto;
-  padding: 2.25rem 1.75rem;
+  padding: 2rem;
   background: #FFFFFF;
   border: 1px solid var(--gold-border);
   border-radius: var(--radius-md);
-  box-shadow: var(--shadow-subtle);
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  align-items: center;
+  box-shadow: var(--shadow-card);
 }
 
-.location-address h4 {
+.location-box h4 {
   font-family: var(--font-serif);
-  font-size: 1.5rem;
+  font-size: 1.35rem;
   font-weight: 600;
-  color: var(--text-main);
+  color: var(--text-dark);
   margin-bottom: 0.5rem;
 }
 
-.location-address p {
+.location-box p {
   font-size: 0.95rem;
   color: var(--text-muted);
   line-height: 1.6;
 }
 
-.location-hours {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-  padding: 0.85rem 1.5rem;
-  background: var(--bg-main);
-  border-radius: var(--radius-sm);
-  width: 100%;
+.location-hours-tag {
+  display: inline-block;
+  margin-top: 0.85rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--gold-dark);
+  padding: 0.35rem 1rem;
+  border-radius: var(--radius-pill);
+  background: var(--gold-light);
 }
 
-.location-hours span {
-  font-size: 0.875rem;
-  color: var(--text-main);
-  font-weight: 500;
-}
-
-.location-actions {
+.location-btn-row {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
   gap: 0.75rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
 }
 
-.btn-pill-maps {
+.btn-pill-light {
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
   font-size: 0.85rem;
   font-weight: 600;
-  padding: 0.65rem 1.25rem;
+  padding: 0.6rem 1.25rem;
   border-radius: var(--radius-pill);
   border: 1px solid var(--gold-border);
-  color: var(--text-main);
-  background: #FFFFFF;
+  background: #FFFDFB;
+  color: var(--text-dark);
+  transition: all 0.2s;
 }
 
-.btn-pill-maps:hover {
-  border-color: var(--text-main);
+.btn-pill-light:hover {
+  border-color: var(--gold-primary);
 }
 
 /* --------------------------------------------------------------------------
    6. FOOTER DISCRETO
    -------------------------------------------------------------------------- */
 .site-footer {
-  padding: 3rem 0;
-  border-top: 1px solid rgba(184, 133, 77, 0.15);
+  padding: 2.5rem 0;
+  border-top: 1px solid var(--gold-border);
   text-align: center;
   font-size: 0.8125rem;
-  color: var(--text-soft);
+  color: var(--text-muted);
 }
 
 .footer-inner {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  gap: 0.75rem;
 }
 
 .footer-social {
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  font-weight: 500;
-}
-
-.footer-social:hover {
-  color: var(--primary);
+  font-weight: 600;
+  color: var(--gold-dark);
 }
 
 /* --------------------------------------------------------------------------
-   7. BOTÃO FLUTUANTE DE WHATSAPP (MINIMALISTA)
+   7. BOTÃO FLUTUANTE DE WHATSAPP (MODO JOALHERIA)
    -------------------------------------------------------------------------- */
 .floating-whatsapp {
   position: fixed;
@@ -458,10 +484,10 @@
 }
 
 .floating-btn {
-  width: 3.5rem;
-  height: 3.5rem;
+  width: 3.65rem;
+  height: 3.65rem;
   border-radius: 50%;
-  background: #1DA851;
+  background: linear-gradient(135deg, #1DA851 0%, #178A42 100%);
   color: #FFFFFF;
   display: flex;
   align-items: center;
@@ -475,10 +501,43 @@
   transform: scale(1.08);
 }
 
-/* Responsivo */
+/* --------------------------------------------------------------------------
+   8. MEDIA QUERIES (DESKTOP & MOBILE)
+   -------------------------------------------------------------------------- */
 @media (min-width: 48rem) {
-  .hero-actions {
-    flex-direction: row;
-    justify-content: center;
+  .hero-grid {
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 3.5rem;
+  }
+}
+
+/* Ajuste Elegante para Telas Menores (Mobile / iPhone) */
+@media (max-width: 47.9rem) {
+  .treatment-capsule {
+    border-radius: 24px; /* Em telas menores, a cápsula vira um card arredondado suave */
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.25rem;
+    gap: 1rem;
+  }
+
+  .capsule-left {
+    width: 100%;
+  }
+
+  .capsule-price-pill {
+    align-self: flex-end;
+    font-size: 1.3rem;
+    padding: 0.4rem 1.15rem;
+  }
+
+  .professional-card {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.25rem;
+  }
+
+  .pro-profile {
+    flex-direction: column;
   }
 }
