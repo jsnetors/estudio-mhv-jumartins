@@ -56,30 +56,31 @@
 
 .brand-title {
   font-family: var(--font-serif);
-  font-size: 1.15rem;
+  font-size: clamp(0.82rem, 3.2vw, 1.15rem);
   font-weight: 600;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.08em;
   color: var(--text-dark);
   text-transform: uppercase;
-  line-height: 1.1;
+  line-height: 1.15;
 }
 
 .brand-sub {
   font-family: var(--font-serif);
-  font-size: 0.95rem;
+  font-size: clamp(0.72rem, 2.6vw, 0.95rem);
   font-style: italic;
   color: var(--gold-dark);
-  margin-top: 0.15rem;
+  margin-top: 0.1rem;
 }
 
 .header-cta-pill {
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
-  font-size: 0.85rem;
+  font-size: clamp(0.75rem, 2.4vw, 0.85rem);
   font-weight: 600;
-  letter-spacing: 0.04em;
-  padding: 0.55rem 1.15rem;
+  letter-spacing: 0.03em;
+  padding: 0.5rem clamp(0.75rem, 2.5vw, 1.15rem);
+  white-space: nowrap;
   border-radius: var(--radius-pill);
   background: var(--gold-primary);
   color: #FFFFFF;
