@@ -11,10 +11,12 @@ const salonConfig = {
   subTagline: "Tratamentos personalizados, sempre com avaliação profissional, para indicar o que realmente a sua pele precisa.",
   
   // Contato Real
-  phone: "5551981406640", 
-  phoneDisplay: "(51) 98140-6640",
-  instagramUser: "estudiomariahelenavaz",
-  instagramUrl: "https://instagram.com/estudiomariahelenavaz",
+  phone: "555192513647", 
+  phoneDisplay: "(51) 9251-3647",
+  instagramUser: "jumartins.hair",
+  instagramUrl: "https://www.instagram.com/jumartins.hair/",
+  salonInstagramUser: "estudiomariahelenavaz",
+  salonInstagramUrl: "https://instagram.com/estudiomariahelenavaz",
   
   // Localização Real
   address: {

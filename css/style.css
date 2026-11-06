@@ -294,89 +294,150 @@
 }
 
 /* --------------------------------------------------------------------------
-   4. BLOCO DA PROFISSIONAL JU MARTINS (RODAPÉ DO BANNER)
+   4. SEÇÃO DE DESTAQUE: JU MARTINS (ESTETICISTA OFICIAL)
    -------------------------------------------------------------------------- */
-.professional-card {
-  margin-top: 3rem;
-  max-width: 48rem;
+.professional-spotlight {
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+  max-width: 50rem;
   margin-left: auto;
   margin-right: auto;
-  background: #FFFDFB;
-  border: 1px solid var(--gold-border);
-  border-radius: var(--radius-md);
-  padding: 1.75rem 2rem;
+  background: linear-gradient(145deg, #FFFFFF 0%, #FAF6EE 100%);
+  border: 1.5px solid var(--gold-border);
+  border-radius: 28px;
+  padding: clamp(2rem, 4.5vw, 3rem);
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 1.5rem;
-  box-shadow: var(--shadow-card);
-}
-
-.pro-profile {
-  display: flex;
-  align-items: center;
-  gap: 1.25rem;
-}
-
-/* Retrato Circular de Ju Martins com Borda Ouro */
-.pro-avatar {
-  width: 5rem;
-  height: 5rem;
-  border-radius: 50%;
-  border: 2.5px solid var(--gold-primary);
+  gap: clamp(1.75rem, 4vw, 2.75rem);
+  box-shadow: 0 10px 30px rgba(197, 155, 99, 0.14), 0 2px 8px rgba(0, 0, 0, 0.03);
+  position: relative;
   overflow: hidden;
-  flex-shrink: 0;
-  box-shadow: 0 3px 12px rgba(197, 155, 99, 0.25);
 }
 
-.pro-avatar img {
+.professional-spotlight::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
+}
+
+.spotlight-avatar-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.85rem;
+  flex-shrink: 0;
+}
+
+/* Retrato Circular Nobre e Proeminente */
+.spotlight-avatar {
+  width: clamp(9.5rem, 26vw, 12rem);
+  height: clamp(9.5rem, 26vw, 12rem);
+  border-radius: 50%;
+  border: 3.5px solid var(--gold-primary);
+  box-shadow: 0 8px 25px rgba(197, 155, 99, 0.3), 0 0 0 6px rgba(197, 155, 99, 0.15);
+  overflow: hidden;
+  background: #FFFDFB;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.spotlight-avatar:hover {
+  transform: scale(1.03);
+  box-shadow: 0 12px 32px rgba(197, 155, 99, 0.38), 0 0 0 8px rgba(197, 155, 99, 0.22);
+}
+
+.spotlight-avatar img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-
-.pro-details h3 {
-  font-family: var(--font-serif);
-  font-size: 1.65rem;
-  font-style: italic;
-  font-weight: 600;
-  color: var(--gold-dark);
-  line-height: 1.1;
-}
-
-.pro-details span {
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--text-muted);
   display: block;
-  margin-top: 0.25rem;
 }
 
-.pro-action {
-  display: flex;
-  align-items: center;
-  gap: 0.85rem;
-}
-
-.pro-calendar-cta {
+.spotlight-insta-badge {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  font-size: 0.95rem;
+  gap: 0.4rem;
+  font-size: 0.825rem;
   font-weight: 600;
-  color: var(--text-dark);
-  padding: 0.75rem 1.25rem;
-  border-radius: var(--radius-pill);
-  border: 1px solid var(--gold-border);
+  color: var(--gold-dark);
   background: #FFFFFF;
-  transition: all 0.2s;
+  border: 1px solid var(--gold-border);
+  padding: 0.4rem 0.95rem;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 2px 6px rgba(197, 155, 99, 0.1);
+  transition: all 0.2s ease;
 }
 
-.pro-calendar-cta:hover {
+.spotlight-insta-badge:hover {
   border-color: var(--gold-primary);
+  color: var(--text-dark);
+  transform: translateY(-1px);
+}
+
+.spotlight-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  flex: 1;
+}
+
+.spotlight-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.spotlight-tag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
   color: var(--gold-dark);
+}
+
+.spotlight-name {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 3.8vw, 2.5rem);
+  font-style: italic;
+  font-weight: 600;
+  color: var(--text-dark);
+  line-height: 1.1;
+  letter-spacing: 0.01em;
+}
+
+.spotlight-quote {
+  font-size: clamp(0.95rem, 1.8vw, 1.05rem);
+  color: var(--text-muted);
+  line-height: 1.6;
+  font-style: italic;
+}
+
+.spotlight-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 0.35rem;
+}
+
+.spotlight-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  background: linear-gradient(135deg, var(--gold-primary) 0%, var(--gold-dark) 100%);
+  padding: 0.8rem 1.5rem;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 4px 14px rgba(197, 155, 99, 0.3);
+  transition: all 0.2s ease;
+}
+
+.spotlight-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(197, 155, 99, 0.42);
 }
 
 /* --------------------------------------------------------------------------
@@ -466,12 +527,29 @@
   gap: 0.75rem;
 }
 
+.footer-links-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
 .footer-social {
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
   font-weight: 600;
   color: var(--gold-dark);
+  transition: color 0.2s ease;
+}
+
+.footer-social:hover {
+  color: var(--text-dark);
+}
+
+.footer-divider {
+  color: var(--gold-border);
 }
 
 /* --------------------------------------------------------------------------
@@ -532,13 +610,24 @@
     padding: 0.4rem 1.15rem;
   }
 
-  .professional-card {
+  .professional-spotlight {
     flex-direction: column;
     text-align: center;
-    gap: 1.25rem;
+    padding: 2.25rem 1.5rem;
+    gap: 1.5rem;
   }
 
-  .pro-profile {
-    flex-direction: column;
+  .spotlight-content {
+    align-items: center;
+  }
+
+  .spotlight-actions {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .spotlight-cta {
+    width: 100%;
+    justify-content: center;
   }
 }
