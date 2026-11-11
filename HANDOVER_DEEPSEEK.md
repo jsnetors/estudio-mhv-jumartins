@@ -1,0 +1,176 @@
+# 📋 Documento de Handover & Contexto Técnico — Estúdio MHV & Ju Martins Estética Facial
+> **Para ser fornecido diretamente ao DeepSeek (ou outro LLM) para continuação contínua do desenvolvimento.**
+
+---
+
+## 🎯 Prompt de Inicialização (Copie e cole no DeepSeek)
+
+```markdown
+Você atuará como Engenheiro Frontend Sênior e Especialista em CRO (Otimização de Taxa de Conversão). Você está assumindo a manutenção e evolução da landing page mobile-first de alta conversão da esteticista **Ju Martins (Jucelia Martins)** no **Estúdio Maria Helena Vaz (MHV)** em Porto Alegre - RS.
+
+O projeto já está desenvolvido, versionado no GitHub e publicado no GitHub Pages.
+Por favor, leia atentamente todo o documento de handover abaixo para entender a arquitetura, regras de negócio, design system, stack e pendências antes de propor qualquer alteração.
+```
+
+---
+
+## 1. 📌 Visão Geral do Projeto & Negócio
+
+* **Cliente / Profissional:** Jucelia Martins (Ju Martins) — Esteticista Facial.
+* **Espaço / Clínica:** Estúdio Maria Helena Vaz (MHV).
+* **Localização Física:** Av. Venâncio Aires, 464, Bairro Farroupilha / Cidade Baixa, Porto Alegre - RS (próximo ao Parque da Redenção).
+* **WhatsApp Oficial:** `+55 51 9251-3647` (Link direto: `https://wa.me/555192513647`).
+* **Instagram Profissional:** [@jumartins.hair](https://www.instagram.com/jumartins.hair/)
+* **Instagram do Espaço:** [@estudiomariahelenavaz](https://instagram.com/estudiomariahelenavaz)
+* **Horário de Funcionamento:** Terça a Sábado das 09:00 às 18:00 (Atendimento exclusivo com hora marcada).
+* **Objetivo Primário da Página:** Servir como destino exclusivo de campanhas de tráfego pago no **Instagram Ads** (Stories e Feed). O foco é **100% conversão direta para agendamento via WhatsApp**, eliminando atritos de formulários ou calendários complexos. Cada botão abre o WhatsApp já com uma mensagem personalizada para o serviço específico clicado.
+
+---
+
+## 2. 🌐 Repositório, Links & Deploy
+
+* **Caminho no Sistema Local:** `C:\Users\jsneto\.gemini\antigravity\scratch\jucelia-martins-hair`
+* **Repositório Git Remoto:** `https://github.com/jsnetors/estudio-mhv-jumartins.git` (Branch padrão: `main`)
+* **Deploy em Produção (GitHub Pages):** [https://jsnetors.github.io/estudio-mhv-jumartins/](https://jsnetors.github.io/estudio-mhv-jumartins/)
+* **Status Git Atual:** Working tree limpa, sincronizada com `origin/main`.
+
+---
+
+## 3. 🛠️ Stack Tecnológica & Filosofia de Desenvolvimento
+
+* **Stack:** **HTML5 Semântico**, **CSS3 Moderno** (com Custom Properties / CSS Variables) e **JavaScript Puro (ES6+)**.
+* **Sem Frameworks / Zero Bloat:** O projeto propositalmente **não utiliza React, Vue, Tailwind ou builders pesados (Webpack/Vite)**. O carregamento precisa ser instantâneo (< 1 segundo em 4G móvel) para evitar taxa de rejeição (*drop-off*) dos usuários que chegam através dos anúncios do Instagram.
+* **Filosofia CodeStitch:**
+  * **Mobile-First Real:** O layout foi projetado prioritariamente para telas de smartphones (360px a 430px de largura).
+  * **Tipografia Fluida:** Uso intensivo de funções CSS `clamp()` para fontes, paddings e gaps, garantindo escalonamento natural sem quebras de layout entre telas pequenas e monitores desktop.
+  * **Acessibilidade & Contraste:** Cores douradas escuras (`--gold-dark`) para textos em conformidade com WCAG AA sobre fundo creme claro (`#FAF7F2`).
+
+---
+
+## 4. 📂 Estrutura de Arquivos
+
+```
+jucelia-martins-hair/
+├── index.html               # Estrutura semântica completa da landing page
+├── README.md                # Documentação rápida de uso e deploy
+├── HANDOVER_DEEPSEEK.md     # Este documento de transição de contexto
+├── css/
+│   ├── root.css             # Design Tokens: Variáveis de cor, tipografia e reset CSS
+│   └── style.css            # Estilização modular mobile-first de todas as seções
+├── js/
+│   ├── config.js            # Central de configurações: dados de contato, serviços, tracking
+│   └── main.js              # Interações leves e motor de rastreamento de conversão (Meta Pixel/GA4)
+└── assets/
+    ├── banner-mhv.jpg       # Banner original de referência estética
+    ├── hero-facial.jpg      # Imagem principal da seção Hero (alta prioridade)
+    ├── ju-martins.jpg       # Foto oficial da profissional (centralizada e tratada)
+    ├── proc-1-essencial.jpg # Foto procedimento: Limpeza Essencial
+    ├── proc-2-profunda.jpg  # Foto procedimento: Limpeza Profunda
+    ├── proc-3-ozonio.jpg    # Foto procedimento: Limpeza com Ozônio
+    └── proc-4-peeling.jpg   # Foto procedimento: Peeling de Diamante
+```
+
+---
+
+## 5. 🎨 Design System & Identidade Visual
+
+### Paleta de Cores (`css/root.css`)
+| Variável | Valor Hex | Finalidade |
+| :--- | :--- | :--- |
+| `--gold-primary` | `#C59B63` | Ouro Acetinado (botões principais, monograma, destaque) |
+| `--gold-dark` | `#9E743A` | Ouro Escuro de alto contraste para leitura e títulos |
+| `--gold-light` | `#F7EFE3` | Champanhe suave para backgrounds de badges e pills |
+| `--gold-border` | `rgba(197, 155, 99, 0.42)` | Bordas delicadas com toque dourado |
+| `--bg-main` | `#FAF7F2` | Fundo principal da página (Creme acolhedor e elegante) |
+| `--bg-card` | `#FFFFFF` | Branco puro para cartões e áreas de foco |
+| `--bg-capsule` | `#FFFDFB` | Tom especial para as cápsulas de procedimentos |
+| `--text-dark` | `#1C1817` | Carvão nobre profundo para tipografia principal |
+| `--text-muted` | `#6B625D` | Taupe suave para descrições secundárias |
+
+### Tipografia
+* **Serifada (Títulos e Destaques):** `'Cormorant Garamond', Georgia, serif` — Transmite elegância, cuidado e autoridade estética.
+* **Sem Serifa (Corpo e Botões):** `'Plus Jakarta Sans', system-ui, sans-serif` — Alta legibilidade em telas pequenas.
+
+---
+
+## 6. 🧴 Catálogo de Procedimentos & Preços Vigentes
+
+| Procedimento | Valor | Badge / Categoria | Descrição Resumida |
+| :--- | :--- | :--- | :--- |
+| **Limpeza de Pele Essencial** | R$ 150 | Cuidado Mensal | Higienização, esfoliação suave, máscara facial e hidratação. |
+| **Limpeza de Pele Profunda** | R$ 190 | Campeã de Escolha ⭐ | Higienização, emoliência, extração detalhada de cravos/impurezas sem dor, máscara calmante. |
+| **Limpeza Premium com Ozônio** | R$ 250 | Alta Performance 💨 | Protocolo completo com Vapor de Ozônio (bactericida/oxigenante celular) e hidratação restauradora. |
+| **Peeling de Diamante** | R$ 230 | Pele de Porcelana ✨ | Microdermoabrasão, renovação celular profunda, viço e uniformidade da textura. |
+
+> **Nota técnica:** Todas as chamadas para o WhatsApp utilizam texto codificado na URL com o nome do serviço e o valor, permitindo que a Ju Martins saiba exatamente qual anúncio ou card motivou o contato.
+
+---
+
+## 7. 📊 Arquitetura de Rastreamento (Tracking & Analytics)
+
+O site possui escutas centralizadas de cliques em `js/main.js` através da classe seletora `.js-whatsapp-trigger`:
+
+```javascript
+// Atributos lidos em cada clique de conversão:
+data-placement="hero_primary" | "capsule" | "pro_spotlight" | "header" | "floating_button"
+data-service="Nome do Procedimento"
+data-price="190"
+```
+
+### Eventos Disparados:
+1. **Meta Pixel (Facebook/Instagram Ads):**
+   ```javascript
+   fbq("track", "Lead", {
+     content_name: serviceName,
+     value: servicePrice,
+     currency: "BRL",
+     button_placement: placement
+   });
+   ```
+2. **Google Analytics 4 / Google Tag:**
+   ```javascript
+   gtag("event", "generate_lead", {
+     event_label: serviceName,
+     value: servicePrice,
+     currency: "BRL"
+   });
+   ```
+3. **DataLayer (Google Tag Manager):**
+   Evento `whatsapp_conversion` pushado no array global `window.dataLayer`.
+
+> **Atenção:** Em `index.html` (linhas 40 e 48) e `js/config.js` (linhas 43 e 44), as tags estão preparadas com placeholders (`SEU_PIXEL_ID_AQUI` e `G-XXXXXXXXXX`). Quando o cliente fornecer o ID da conta de anúncios, basta substituir essas strings.
+
+---
+
+## 8. 🔍 Histórico de Decisões do Projeto (O que já foi feito)
+
+1. **Abordagem Minimalista:** Iniciou-se com uma estrutura mais extensa com blocos adicionais, mas após alinhamento com o usuário, a página foi reestruturada para ser **extremamente direta, limpa e editorial**, inspirada no layout visual do banner físico do salão.
+2. **Substituição de Imagens:** Imagens genéricas com textos embutidos foram removidas. Foram incluídas fotos profissionais limpas para cada procedimento e foto em alta definição para a seção Hero.
+3. **Recorte e Destaque da Ju Martins:** A foto real da Ju Martins foi reenquadrada para eliminar o espaço vazio à direita da parede cinza original. A foto foi centralizada no rosto, ampliada para uma moldura nobre com anel dourado e ganhou link direto para o Instagram oficial `@jumartins.hair`.
+4. **Número de WhatsApp Atualizado:** O número de agendamento foi configurado para o contato definitivo: `+55 51 9251-3647`.
+
+---
+
+## 9. 🚀 Backlog & Próximas Demandas Sugeridas para o DeepSeek
+
+Se o usuário solicitar novas tarefas, aqui estão as áreas prioritárias mapeadas:
+
+1. **Configuração Final dos Pixels de Tráfego:**
+   * Inserir o ID definitivo do Meta Pixel (fornecido pelo cliente/gestor de tráfego).
+   * Validar disparos de eventos de teste na ferramenta *Meta Pixel Helper*.
+2. **Domínio Personalizado:**
+   * Configuração de DNS caso o cliente adquira um domínio próprio (ex: `juceliamartins.com.br` ou `estudiomhv.com.br`) apontando para o GitHub Pages ou Netlify/Vercel.
+3. **Integração Dinâmica vs Estática:**
+   * Atualmente, o arquivo `js/config.js` contém todo o catálogo estruturado, porém o `index.html` possui a renderização estática para maximizar velocidade de First Contentful Paint (FCP). Se o cliente desejar alterar procedimentos frequentemente sem mexer no HTML, pode-se implementar a renderização dinâmica leve via JS alimentada por `salonConfig`.
+4. **Adição de Prova Social (Opcional):**
+   * Em `js/config.js` já existem 3 depoimentos reais preparados. Caso o usuário decida exibi-los, criar um slider ou grid ultra-minimalista que não comprometa a leveza da página.
+5. **SEO Local / Schema.org:**
+   * Adicionar dados estruturados JSON-LD do tipo `HealthAndBeautyBusiness` ou `BeautySalon` para fortalecer o ranqueamento local no Google em Porto Alegre.
+
+---
+
+## 💡 Instruções de Trabalho para o DeepSeek
+
+* Mantenha sempre a abordagem **Zero Bloat** (evite sugerir bibliotecas npm pesadas a menos que estritamente solicitado).
+* Qualquer alteração no CSS deve respeitar as variáveis em `css/root.css` e o padrão mobile-first com `clamp()`.
+* Mantenha todos os links de WhatsApp apontando para o número oficial `555192513647` com a classe `.js-whatsapp-trigger` para não quebrar a métrica de ROAS dos anúncios do Instagram.
