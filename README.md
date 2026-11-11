@@ -113,7 +113,7 @@ A mesma origem entra nos eventos `Lead` (Pixel), `generate_lead` (GA4) e `whatsa
 
 ```js
 window.SITE_LEADS = {
-  endpoint: "",          // URL do Web App do Apps Script (backend/README.md)
+  endpoint: "https://script.google.com/macros/s/…/exec", // já configurado
   consentVersion: "1.0"
 };
 ```

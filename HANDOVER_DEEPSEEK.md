@@ -290,10 +290,12 @@ window.__trackingStatus // { meta, ga4 }
 
 ### 12.6 Pendências desta frente
 
-1. **Publicar o Apps Script** e colar a URL em `window.SITE_LEADS.endpoint` (passo a passo em `backend/README.md`).
-2. **Colocar o link da bio** com a UTM e os stickers de story por procedimento.
+1. **✅ Endpoint publicado e conectado** (`window.SITE_LEADS.endpoint` aponta para o Web App do Apps Script). Envio real validado do navegador: `{"ok": true}` e confirmação na tela, sem fallback.
+2. **Colocar o link da bio** com a UTM e os stickers de story por procedimento (kit em `docs/kit-instagram.md`).
 3. **Revisão jurídica** da `politica-de-privacidade.html` (texto baseado na LGPD, mas é documento modelo).
 4. **ManyChat (opcional):** automação "comente QUERO" → direct com link rastreado.
+5. **Limpar as linhas de teste** da planilha ("TESTE DeepSeek" e "TESTE Navegador").
+6. **Proteger o endpoint contra spam** caso apareça: hoje há honeypot, validação e limite de 20/min. Se virar problema, adicionar reCAPTCHA ou uma palavra-chave compartilhada no payload.
 
 ---
 
