@@ -190,6 +190,40 @@ Ajustes adicionais: dimensões declaradas do hero corrigidas para 580×500 (elim
 
 ---
 
+## 11. 📱 Responsividade — Auditoria e Correções (11/11/2026)
+
+O layout já não quebrava horizontalmente em nenhuma largura, mas a auditoria por dispositivo (medição real via Chrome DevTools Protocol) encontrou problemas de composição e de toque:
+
+| Sintoma encontrado | Onde | Correção |
+| :--- | :--- | :--- |
+| Wordmark em **4 linhas** vazando da altura fixa do header | 320px | Header com `min-height` + `padding-block`, tipografia fluida e `text-wrap: balance` |
+| Wordmark em 3 linhas e colado no CTA (gap 0px) | 360–540px | Clamp no monograma/título e `gap` fluido; 1 linha a partir de 360px |
+| CTA do header com 35px de altura | 320–480px | `min-height: 2.5rem` (40px) |
+| Links do rodapé e badge do Instagram com 21–36px | mobile | `min-height: 2.5rem` |
+| Título órfão ("pele" sozinho na 3ª linha) | 1024–1199px | Escala do `h1` travada em 43–48px nessa faixa |
+| Salto de 2 → 3 linhas no título | 1600px+ | Cap em 3.5rem a partir de 1440px |
+| Página limitada a 864px com margens enormes | 1200px+ | Container 60rem (1024) e 68rem (1440); cards 52/58rem |
+| CTA primário abaixo da dobra | celular deitado (844×390) | Modo compacto em `max-height: 34rem` |
+
+### Faixas cobertas (`css/style.css`, seção 8)
+
+| Faixa | Comportamento |
+| :--- | :--- |
+| ≤ 380px | Rótulo do CTA vira "Agendar"; wordmark em 2 linhas equilibradas |
+| ≤ 767px | Cápsulas viram cards; spotlight empilhado; alvos de toque de 40px |
+| 768–1023px | Hero em 2 colunas; cápsulas horizontais |
+| 1024–1199px | Container 60rem; `h1` 43–48px |
+| 1200–1439px | Container 60rem, cards 52rem, spotlight 54rem |
+| ≥ 1440px | Container 68rem, cards 58rem, spotlight 60rem, hero 26rem |
+| Altura ≤ 544px | Header 56px, hero compacto, CTA acima da dobra |
+| `prefers-reduced-motion` | Desliga scroll suave e transições |
+
+**Validação executada:** 23 larguras (320→1920) + 7 cenários de paisagem, todos com `scrollWidth == innerWidth`, zero elementos fora da viewport, zero texto cortado e CTA primário acima da dobra em paisagem. Screenshots conferidos em 320, 390, 768, 900, 1024, 1440 e 1600.
+
+**Nova pendência:** o `README.md` cita o checkpoint de 360/390px; ao evoluir o layout, repetir a varredura completa (320, 360, 390, 768, 1024, 1440, 1920) e a paisagem.
+
+---
+
 ## 💡 Instruções de Trabalho para o DeepSeek
 
 * Mantenha sempre a abordagem **Zero Bloat** (evite sugerir bibliotecas npm pesadas a menos que estritamente solicitado).

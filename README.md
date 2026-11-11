@@ -118,6 +118,6 @@ Quando o domínio próprio for comprado (ex.: `juceliamartins.com.br`):
 
 - [ ] Os 9 CTAs abrem o WhatsApp correto, com mensagem pré-preenchida e acentuação legível.
 - [ ] Preço no botão, no `?text=` e no JSON-LD estão iguais.
-- [ ] `index.html` sem overflow horizontal em 360 px e 390 px.
+- [ ] `index.html` sem overflow horizontal em 320, 360, 390, 768, 1024, 1440 px e em paisagem.
 - [ ] Console sem erros de JavaScript.
 - [ ] JSON-LD validado no [Rich Results Test](https://search.google.com/test/rich-results).
