@@ -32,7 +32,7 @@ Por favor, leia atentamente todo o documento de handover abaixo para entender a 
 * **Caminho no Sistema Local:** `C:\Users\jsneto\.gemini\antigravity\scratch\jucelia-martins-hair`
 * **Repositório Git Remoto:** `https://github.com/jsnetors/estudio-mhv-jumartins.git` (Branch padrão: `main`)
 * **Deploy em Produção (GitHub Pages):** [https://jsnetors.github.io/estudio-mhv-jumartins/](https://jsnetors.github.io/estudio-mhv-jumartins/)
-* **Status Git Atual:** Working tree limpa, sincronizada com `origin/main`.
+* **Status Git Atual:** commit local de auditoria técnica (11/11/2026) aplicado sobre `main`, **1 commit à frente de `origin/main`** — push pendente de aprovação. Produção ainda serve a versão anterior.
 
 ---
 
@@ -58,7 +58,6 @@ jucelia-martins-hair/
 │   ├── root.css             # Design Tokens: Variáveis de cor, tipografia e reset CSS
 │   └── style.css            # Estilização modular mobile-first de todas as seções
 ├── js/
-│   ├── config.js            # Central de configurações: dados de contato, serviços, tracking
 │   └── main.js              # Interações leves e motor de rastreamento de conversão (Meta Pixel/GA4)
 └── assets/
     ├── banner-mhv.jpg       # Banner original de referência estética
@@ -102,7 +101,7 @@ jucelia-martins-hair/
 | **Limpeza Premium com Ozônio** | R$ 250 | Alta Performance 💨 | Protocolo completo com Vapor de Ozônio (bactericida/oxigenante celular) e hidratação restauradora. |
 | **Peeling de Diamante** | R$ 230 | Pele de Porcelana ✨ | Microdermoabrasão, renovação celular profunda, viço e uniformidade da textura. |
 
-> **Nota técnica:** Todas as chamadas para o WhatsApp utilizam texto codificado na URL com o nome do serviço e o valor, permitindo que a Ju Martins saiba exatamente qual anúncio ou card motivou o contato.
+> **Nota técnica:** Todos os **9 CTAs** da página abrem o WhatsApp com texto codificado na URL — os 4 cards de procedimento levam nome e valor, e os 5 CTAs institucionais (header, hero, spotlight, localização e botão flutuante) levam a mensagem correspondente ao contexto. Isso permite que a Ju Martins saiba exatamente qual anúncio ou card motivou o contato.
 
 ---
 
@@ -138,7 +137,7 @@ data-price="190"
 3. **DataLayer (Google Tag Manager):**
    Evento `whatsapp_conversion` pushado no array global `window.dataLayer`.
 
-> **Atenção:** Em `index.html` (linhas 40 e 48) e `js/config.js` (linhas 43 e 44), as tags estão preparadas com placeholders (`SEU_PIXEL_ID_AQUI` e `G-XXXXXXXXXX`). Quando o cliente fornecer o ID da conta de anúncios, basta substituir essas strings.
+> **Atenção:** os IDs ficam em **um único ponto** do `index.html`, no objeto `window.SITE_TRACKING` (`metaPixelId` e `ga4Id`). Enquanto forem placeholder, nenhum script de terceiros é baixado — há guardas de formato (`PIXEL_RE` / `GA4_RE`) e bloqueio explícito de placeholder (`PLACEHOLDER_RE`). O antigo `js/config.js` foi removido (não era carregado por nenhuma página e duplicava os preços).
 
 ---
 
@@ -156,16 +155,38 @@ data-price="190"
 Se o usuário solicitar novas tarefas, aqui estão as áreas prioritárias mapeadas:
 
 1. **Configuração Final dos Pixels de Tráfego:**
-   * Inserir o ID definitivo do Meta Pixel (fornecido pelo cliente/gestor de tráfego).
+   * Inserir o ID definitivo do Meta Pixel e do GA4 em `window.SITE_TRACKING` (topo do `index.html`).
+   * Descomentar o `<noscript>` do Pixel (já preparado no arquivo) após receber o ID.
    * Validar disparos de eventos de teste na ferramenta *Meta Pixel Helper*.
 2. **Domínio Personalizado:**
    * Configuração de DNS caso o cliente adquira um domínio próprio (ex: `juceliamartins.com.br` ou `estudiomhv.com.br`) apontando para o GitHub Pages ou Netlify/Vercel.
+   * **Pendência obrigatória junto:** trocar todas as URLs absolutas do `index.html` (`canonical`, `og:url`, `og:image`, `twitter:image`, `url`/`@id`/`image` do JSON-LD) — hoje apontam para `jsnetors.github.io`.
 3. **Integração Dinâmica vs Estática:**
-   * Atualmente, o arquivo `js/config.js` contém todo o catálogo estruturado, porém o `index.html` possui a renderização estática para maximizar velocidade de First Contentful Paint (FCP). Se o cliente desejar alterar procedimentos frequentemente sem mexer no HTML, pode-se implementar a renderização dinâmica leve via JS alimentada por `salonConfig`.
+   * **Decisão tomada:** manter 100% estático. O `js/config.js` foi removido para eliminar a duplicação de preços e o peso morto. O catálogo é editado diretamente no `index.html`.
 4. **Adição de Prova Social (Opcional):**
-   * Em `js/config.js` já existem 3 depoimentos reais preparados. Caso o usuário decida exibi-los, criar um slider ou grid ultra-minimalista que não comprometa a leveza da página.
+   * Havia 3 depoimentos preparados no antigo `js/config.js` (recuperáveis no histórico do Git). Caso o usuário decida exibi-los, criar um bloco ultra-minimalista que não comprometa a leveza da página.
 5. **SEO Local / Schema.org:**
-   * Adicionar dados estruturados JSON-LD do tipo `HealthAndBeautyBusiness` ou `BeautySalon` para fortalecer o ranqueamento local no Google em Porto Alegre.
+   * ✅ **Concluído:** JSON-LD `BeautySalon` com endereço, horários, telefone, fundadora, catálogo de ofertas e `ReserveAction` para o WhatsApp.
+6. **Acessibilidade / Contraste (pendente de decisão do cliente):**
+   * O CTA dourado do header (`--gold-primary` + texto branco) tem contraste ≈ 2,56:1 e o CTA verde do hero ≈ 3,11:1 — ambos abaixo de WCAG AA (4,5:1) para texto pequeno. Corrigir exige escurecer a paleta ou mudar a cor do texto; não foi alterado para não descaracterizar a identidade visual aprovada.
+
+---
+
+## 10. 🧾 Atualização Técnica — Auditoria e Correções (11/11/2026)
+
+Auditoria completa do código publicado revelou 5 divergências entre este documento e a produção. Todas foram corrigidas:
+
+1. **CTAs incompletos:** 4 dos 9 botões (header, hero, localização e flutuante) abriam o WhatsApp **sem** mensagem pré-preenchida, contrariando a premissa do projeto. Agora **9/9** chegam com texto contextualizado e codificado.
+2. **`js/config.js` era código morto:** não era referenciado por nenhuma página; os preços existiam em duas fontes divergentes. Arquivo **removido** (histórico do Git preserva os depoimentos).
+3. **Pixels com placeholder em produção:** o `gtag.js` era baixado com `G-XXXXXXXXXX` (requisição inútil e dado lixo) e o `fbevents.js` era baixado mesmo sem `init`. Agora há um **painel único** (`window.SITE_TRACKING`), guardas de formato e bloqueio de placeholder — enquanto não houver IDs válidos, **zero** requisições de terceiros.
+4. **Open Graph inválido:** `og:image` era relativo e faltavam `og:url`, `og:site_name`, dimensões, `twitter:card` e `canonical`. Todos adicionados com URLs absolutas.
+5. **SEO local ausente:** JSON-LD `BeautySalon` implementado (endereço, CEP, horários Ter–Sáb 09–18, telefone, fundadora, 4 ofertas com preço e `ReserveAction`).
+
+Ajustes adicionais: dimensões declaradas do hero corrigidas para 580×500 (elimina CLS), `README.md` reescrito (antes falava de "Hair Stylist" e de um `config.js` que não existia mais) e fallback `<noscript>` do Pixel preparado/desativado.
+
+**Validação executada:** JSON-LD parseado, 9 CTAs e mensagens decodificadas conferidas, 6 assets referenciados presentes, scripts inline com sintaxe válida, comportamento do tracking testado em 3 cenários (placeholder / IDs válidos / IDs malformados) e renderização headless em 390 px sem overflow horizontal (`scrollWidth == 390`).
+
+**Ainda pendente:** IDs definitivos de Pixel/GA4, `<noscript>` do Pixel, domínio próprio (+ troca das URLs absolutas) e decisão sobre contraste dos botões.
 
 ---
 
@@ -174,3 +195,4 @@ Se o usuário solicitar novas tarefas, aqui estão as áreas prioritárias mapea
 * Mantenha sempre a abordagem **Zero Bloat** (evite sugerir bibliotecas npm pesadas a menos que estritamente solicitado).
 * Qualquer alteração no CSS deve respeitar as variáveis em `css/root.css` e o padrão mobile-first com `clamp()`.
 * Mantenha todos os links de WhatsApp apontando para o número oficial `555192513647` com a classe `.js-whatsapp-trigger` para não quebrar a métrica de ROAS dos anúncios do Instagram.
+
