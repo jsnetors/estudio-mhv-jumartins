@@ -32,7 +32,7 @@ Por favor, leia atentamente todo o documento de handover abaixo para entender a 
 * **Caminho no Sistema Local:** `C:\Users\jsneto\.gemini\antigravity\scratch\jucelia-martins-hair`
 * **Repositório Git Remoto:** `https://github.com/jsnetors/estudio-mhv-jumartins.git` (Branch padrão: `main`)
 * **Deploy em Produção (GitHub Pages):** [https://jsnetors.github.io/estudio-mhv-jumartins/](https://jsnetors.github.io/estudio-mhv-jumartins/)
-* **Status Git Atual:** working tree limpa e sincronizada com `origin/main`. **Deploy em produção: commit `629c12f`** (auditoria técnica de 11/11/2026), publicado e verificado byte a byte em 11/11/2026.
+* **Status Git Atual:** working tree limpa e sincronizada com `origin/main`. O GitHub Pages publica automaticamente a cada push em `main` (~1 min) e cada alteração é conferida byte a byte contra a produção.
 
 ---
 
