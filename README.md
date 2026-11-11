@@ -23,15 +23,22 @@ Landing page mobile-first de alta conversão para campanhas de Instagram Ads. To
 
 ```
 jucelia-martins-hair/
-├── index.html               # Estrutura semântica + SEO/JSON-LD + painel de tracking
-├── README.md                # Este arquivo
-├── HANDOVER_DEEPSEEK.md     # Contexto técnico completo para continuidade
+├── index.html                    # Landing page: SEO/JSON-LD, tracking, captura
+├── politica-de-privacidade.html  # Política LGPD (linkada no consentimento)
+├── README.md                     # Este arquivo
+├── HANDOVER_DEEPSEEK.md          # Contexto técnico completo para continuidade
 ├── css/
-│   ├── root.css             # Design tokens: cores, tipografia, reset
-│   └── style.css            # Estilização modular mobile-first
+│   ├── root.css                  # Design tokens: cores, tipografia, reset
+│   └── style.css                 # Estilização modular mobile-first
 ├── js/
-│   └── main.js              # Tracking de conversão + micro-interações
-└── assets/                  # Imagens do hero, da profissional e dos 4 procedimentos
+│   ├── main.js                   # Origem (UTM), tracking de conversão e interações
+│   └── lead-form.js              # Formulário de contato: validação, envio e fallback
+├── backend/
+│   ├── leads.gs                  # Web App do Apps Script (grava na planilha)
+│   └── README.md                 # Passo a passo de publicação
+├── docs/
+│   └── kit-instagram.md          # Bio, links por canal e roteiro de stories
+└── assets/                       # Imagens do hero, da profissional e dos procedimentos
 ```
 
 > O antigo `js/config.js` foi removido: era carregado por nenhuma página e mantinha uma segunda cópia (divergente) dos preços. O conteúdo útil dele está preservado no histórico do Git.
@@ -84,6 +91,41 @@ Para conferir em produção: `window.__trackingStatus` → `{ meta: true/false, 
 
 ---
 
+## 🎯 Captação: Instagram, origem rastreada e formulário
+
+**Origem.** Todo link publicado leva UTM. O site lê `utm_source`, `utm_medium`, `utm_campaign` e `utm_content`, guarda na sessão e acrescenta a origem na mensagem do WhatsApp:
+
+> Olá, Ju! Gostaria de agendar a Limpeza de Pele Profunda (R$ 190) no Estúdio MHV.
+>
+> Vim pelo Instagram (stories · limpeza-profunda).
+
+A mesma origem entra nos eventos `Lead` (Pixel), `generate_lead` (GA4) e `whatsapp_conversion` (dataLayer). Os links prontos, por canal, estão em [`docs/kit-instagram.md`](docs/kit-instagram.md).
+
+| Canal | Link (base: `https://jsnetors.github.io/estudio-mhv-jumartins/`) |
+| :--- | :--- |
+| Bio | `?utm_source=instagram&utm_medium=bio&utm_campaign=perfil` |
+| Story | `?utm_source=instagram&utm_medium=story&utm_campaign=<procedimento>` |
+| Direct | `?utm_source=instagram&utm_medium=dm&utm_campaign=atendimento` |
+| QR / cartão | `?utm_source=qr&utm_medium=cartao&utm_campaign=balcao` |
+| Anúncio | `?utm_source=meta&utm_medium=ads&utm_campaign=<campanha>` |
+
+**Formulário.** A seção "Não sabe qual procedimento é o seu?" abre um diálogo com nome, WhatsApp e consentimento LGPD. Configuração em `window.SITE_LEADS` (topo do `index.html`):
+
+```js
+window.SITE_LEADS = {
+  endpoint: "",          // URL do Web App do Apps Script (backend/README.md)
+  consentVersion: "1.0"
+};
+```
+
+- **Com endpoint:** grava na planilha e confirma na tela.
+- **Sem endpoint ou com falha:** abre o WhatsApp com os dados preenchidos. Nunca se perde um contato.
+- Ao mudar o texto do consentimento, suba `consentVersion` aqui **e** `CONSENT_VERSION_MIN` em `backend/leads.gs`.
+
+Política de privacidade: [`politica-de-privacidade.html`](politica-de-privacidade.html).
+
+---
+
 ## 🚀 Testar localmente
 
 Qualquer servidor estático funciona (não abra via `file://`, os caminhos absolutos quebram):
@@ -117,6 +159,8 @@ Quando o domínio próprio for comprado (ex.: `juceliamartins.com.br`):
 ## ✅ Checklist antes de subir alteração
 
 - [ ] Os 9 CTAs abrem o WhatsApp correto, com mensagem pré-preenchida e acentuação legível.
+- [ ] Link com UTM carimba "Vim pelo Instagram (…)" na mensagem (`window.__mhvOrigin`).
+- [ ] Formulário envia e a linha chega na planilha (ou cai no WhatsApp, se o endpoint estiver vazio).
 - [ ] Preço no botão, no `?text=` e no JSON-LD estão iguais.
 - [ ] `index.html` sem overflow horizontal em 320, 360, 390, 768, 1024, 1440 px e em paisagem.
 - [ ] Console sem erros de JavaScript.

@@ -224,6 +224,79 @@ O layout já não quebrava horizontalmente em nenhuma largura, mas a auditoria p
 
 ---
 
+## 12. 🎯 Captação via Instagram — Origem Rastreada + Formulário (11/11/2026)
+
+Objetivo: transformar o perfil `@jumartins.hair` em fonte mensurável de contatos, sem depender de ferramenta paga.
+
+### 12.1 Arquitetura
+
+```
+Instagram (bio / stories / destaques / direct / anúncio)
+        │  link com ?utm_source=instagram&utm_medium=…&utm_campaign=…
+        ▼
+Landing page
+   ├─ lê a UTM, guarda na sessão e carimba a origem
+   │     → mensagem do WhatsApp: "Vim pelo Instagram (stories · peeling-diamante)."
+   │     → eventos Lead / generate_lead / whatsapp_conversion com campanha
+   └─ formulário "Não sabe qual procedimento?" (nome + WhatsApp + consentimento)
+         → POST no Web App do Apps Script → planilha Google
+         → se falhar: abre o WhatsApp com os dados preenchidos (nunca perde contato)
+```
+
+### 12.2 Arquivos envolvidos
+
+| Arquivo | Papel |
+| :--- | :--- |
+| `js/main.js` | Resolve a origem (`utm_*`/`?ref=`), carimba os 12 links de WhatsApp, dispara os eventos |
+| `js/lead-form.js` | Diálogo, máscara/validação, envio ao endpoint, fallback e eventos |
+| `index.html` | Bloco `window.SITE_LEADS` (endpoint + versão do consentimento), seção de captura e `<dialog>` |
+| `politica-de-privacidade.html` | Política LGPD linkada no consentimento e no rodapé |
+| `backend/leads.gs` | Web App que valida, deduplica e grava na planilha |
+| `backend/README.md` | Passo a passo de publicação (10 min) |
+| `docs/kit-instagram.md` | Bio, links por canal, roteiro de story, destaques e checklist |
+
+### 12.3 Links oficiais por canal
+
+Base: `https://jsnetors.github.io/estudio-mhv-jumartins/`
+
+| Canal | Parâmetros |
+| :--- | :--- |
+| Bio | `?utm_source=instagram&utm_medium=bio&utm_campaign=perfil` |
+| Story (por procedimento) | `?utm_source=instagram&utm_medium=story&utm_campaign=limpeza-profunda` |
+| Reels | `?utm_source=instagram&utm_medium=reels&utm_campaign=…` |
+| Destaque | `?utm_source=instagram&utm_medium=destaque&utm_campaign=agendar` |
+| Direct | `?utm_source=instagram&utm_medium=dm&utm_campaign=atendimento` |
+| QR / cartão | `?utm_source=qr&utm_medium=cartao&utm_campaign=balcao` |
+| Anúncio | `?utm_source=meta&utm_medium=ads&utm_campaign=…&utm_content={{ad.name}}` |
+
+A origem fica em `sessionStorage` e sobrevive à navegação; sem UTM, a mensagem continua limpa.
+
+### 12.4 Comportamento do formulário
+
+- Campos: nome, WhatsApp (máscara BR + validação de DDD/9), procedimento (opcional), consentimento obrigatório.
+- Honeypot invisível + limite de 20 envios/min no Apps Script + dedupe de 5 min por número.
+- Registra `consent_version`; qualquer mudança no texto do consentimento exige subir a versão nos dois lados.
+- Sem endpoint configurado, o envio vira WhatsApp com mensagem montada — a LP nunca "engole" um lead.
+- Eventos: `lead_form_submit` (dataLayer), `Lead` (Pixel) e `generate_lead` (GA4) com `lead_method`.
+
+### 12.5 Como diagnosticar em produção
+
+```js
+window.__mhvOrigin      // origem resolvida
+document.body.dataset.origin
+window.__mhvLeads       // histórico de cliques/envios da sessão
+window.__trackingStatus // { meta, ga4 }
+```
+
+### 12.6 Pendências desta frente
+
+1. **Publicar o Apps Script** e colar a URL em `window.SITE_LEADS.endpoint` (passo a passo em `backend/README.md`).
+2. **Colocar o link da bio** com a UTM e os stickers de story por procedimento.
+3. **Revisão jurídica** da `politica-de-privacidade.html` (texto baseado na LGPD, mas é documento modelo).
+4. **ManyChat (opcional):** automação "comente QUERO" → direct com link rastreado.
+
+---
+
 ## 💡 Instruções de Trabalho para o DeepSeek
 
 * Mantenha sempre a abordagem **Zero Bloat** (evite sugerir bibliotecas npm pesadas a menos que estritamente solicitado).
